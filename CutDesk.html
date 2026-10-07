@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CutDesk helps freelance editors track projects, revisions and payment balances. Works offline with local backups.">
+  <title>CutDesk — Editor Workspace</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23151c29'/%3E%3Cpath d='M9 8h14v5h-9v6h9v5H9z' fill='%23c9f86c'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="mark" aria-hidden="true">C</span>CutDesk
+      </div>
+      <div class="label">WORKSPACE</div>
+      <nav class="nav" aria-label="Main navigation">
+        <button class="active" data-view="projects">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 4v16M3 9h18M3 15h18"/></svg>Projects
+        </button>
+        <button data-view="payments">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></svg>Payments
+        </button>
+        <button data-view="settings">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="3" fill="currentColor" stroke="none"/><circle cx="15" cy="17" r="3" fill="currentColor" stroke="none"/></svg>Settings
+        </button>
+      </nav>
+      <div class="side-bottom">
+        <strong style="font-size:14px">Your work. Your workspace.</strong>
+        <p>Track the edit. Protect your time.<br>Know what you're owed.</p>
+        <a href="CutDesk.html" download="CutDesk.html" id="download-app">Download offline app</a>
+        <p>Keep the downloaded file in the same location. Export a backup regularly.</p>
+      </div>
+      <div class="owner">
+        <span class="avatar" id="owner-initial">ME</span>
+        <div>
+          <strong id="owner-name">Independent editor</strong>
+          <small>CutDesk · v1.0</small>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <span id="today"></span>
+        <div class="topright">
+          <span class="local" id="save-status">Saved on this device</span>
+          <button class="btn" id="backup-top">Export backup</button>
+        </div>
+      </div>
+      <div id="content"></div>
+      <p class="footer-note">Device-local workspace · No cloud sync · Export a backup before changing browsers or clearing browser data.</p>
+    </main>
+  </div>
+
+  <dialog id="modal" aria-labelledby="modal-title">
+    <div class="modal-head">
+      <div>
+        <h2 id="modal-title"></h2>
+        <p class="subtitle" id="modal-subtitle"></p>
+      </div>
+      <button class="close" aria-label="Close dialog" id="close-modal">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" hidden></div>
+  <section class="invoice" id="invoice" aria-label="Printable invoice"></section>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
